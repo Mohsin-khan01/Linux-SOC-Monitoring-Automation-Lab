@@ -1,0 +1,89 @@
+=============================
+SECURITY REPORT GENERATED
+DATE: Wed Apr 15 02:27:02 PM EDT 2026
+HOSTNAME: MK
+USER: selenophile
+=============================
+
+---- Recent SSH Failed Logins ----
+2026-04-12T13:54:19.015717-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password ' /var/log/auth.log
+2026-04-12T13:58:08.296026-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password ' /var/log/auth.log
+2026-04-12T14:03:41.053148-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password ' /var/log/auth.log
+2026-04-12T14:10:59.121390-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password ' /var/log/auth.log
+2026-04-12T14:13:22.669550-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile/Project2_SOC_Lab/reports/hourly ; USER=root ; COMMAND=/usr/bin/grep 'Failed password ' /var/log/auth.log
+2026-04-12T14:14:17.469971-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile/Project2_SOC_Lab/reports/hourly ; USER=root ; COMMAND=/usr/bin/grep 'Failed password ' /var/log/auth.log
+2026-04-14T16:12:50.054123-04:00 MK sudo:     root : TTY=pts/2 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password' /var/log/auth.log
+2026-04-14T16:19:14.797570-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password' /var/log/auth.log
+2026-04-14T16:28:09.087239-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password' /var/log/auth.log
+2026-04-14T16:34:38.763151-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Failed password' /var/log/auth.log
+
+---- Recent SSH Accepted Logins ----
+2026-04-12T13:54:19.035613-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep ' Accepted' /var/log/auth.log
+2026-04-12T13:58:08.313401-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep ' Accepted' /var/log/auth.log
+2026-04-12T14:03:41.070436-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep ' Accepted' /var/log/auth.log
+2026-04-12T14:10:59.138668-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep ' Accepted' /var/log/auth.log
+2026-04-12T14:13:22.688858-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile/Project2_SOC_Lab/reports/hourly ; USER=root ; COMMAND=/usr/bin/grep ' Accepted' /var/log/auth.log
+2026-04-12T14:14:17.487216-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile/Project2_SOC_Lab/reports/hourly ; USER=root ; COMMAND=/usr/bin/grep ' Accepted' /var/log/auth.log
+2026-04-14T16:12:50.075967-04:00 MK sudo:     root : TTY=pts/2 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep Accepted /var/log/auth.log
+2026-04-14T16:19:14.814543-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep Accepted /var/log/auth.log
+2026-04-14T16:28:09.106213-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep Accepted /var/log/auth.log
+2026-04-14T16:34:38.782305-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep Accepted /var/log/auth.log
+
+---- Invalid Users Attempt ----
+2026-04-12T13:54:19.052887-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-12T13:58:08.331592-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-12T14:03:41.088353-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-12T14:10:59.155883-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-12T14:13:22.706195-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile/Project2_SOC_Lab/reports/hourly ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-12T14:14:17.504273-04:00 MK sudo:     root : TTY=pts/5 ; PWD=/home/selenophile/Project2_SOC_Lab/reports/hourly ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-14T16:12:50.098009-04:00 MK sudo:     root : TTY=pts/2 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-14T16:19:14.831236-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-14T16:28:09.122857-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+2026-04-14T16:34:38.799131-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Invalid user' /var/log/auth.log
+
+---- UFW Firewall Status ----
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+8080                       ALLOW IN    Anywhere                  
+2222/tcp                   ALLOW IN    Anywhere                  
+80/tcp                     ALLOW IN    Anywhere                  
+443/tcp                    ALLOW IN    Anywhere                  
+22/tcp                     DENY IN     Anywhere                  
+2222/tcp                   ALLOW IN    192.168.100.0/24          
+8080 (v6)                  ALLOW IN    Anywhere (v6)             
+22 (v6)                    DENY IN     Anywhere (v6)             
+2222/tcp (v6)              ALLOW IN    Anywhere (v6)             
+80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+22/tcp (v6)                DENY IN     Anywhere (v6)             
+
+
+---- Last 10 Firewall Blocks (UFW Logs) ----
+2026-04-15T14:16:52.177163-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC= SRC=fe80:0000:0000:0000:c45b:f0f9:c9b4:be4c DST=ff02:0000:0000:0000:0000:0000:0000:000c LEN=655 TC=0 HOPLIMIT=1 FLOWLBL=571484 PROTO=UDP SPT=60084 DPT=3702 LEN=615 
+2026-04-15T14:16:53.505665-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=e4:b3:18:73:76:7f:70:4f:57:0f:4c:81:08:00 SRC=192.168.100.29 DST=192.168.100.18 LEN=1350 TOS=0x00 PREC=0x00 TTL=63 ID=45239 DF PROTO=UDP SPT=3702 DPT=51986 LEN=1330 
+2026-04-15T14:17:26.351031-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=24 PROTO=2 
+2026-04-15T14:18:07.107046-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-15T14:19:31.279021-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=25 PROTO=2 
+2026-04-15T14:20:12.139007-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-15T14:21:36.207009-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=26 PROTO=2 
+2026-04-15T14:22:17.167024-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-15T14:24:22.099023-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-15T14:26:27.131029-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+
+---- Fail2Ban Status (SSH Jail) ----
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed:	0
+|  |- Total failed:	0
+|  `- File list:	/var/log/auth.log
+`- Actions
+   |- Currently banned:	0
+   |- Total banned:	0
+   `- Banned IP list:	
+
+Report saved to: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-15_14-27-02.txt

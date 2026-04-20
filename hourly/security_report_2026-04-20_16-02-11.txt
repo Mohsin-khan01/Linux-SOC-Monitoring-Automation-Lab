@@ -1,0 +1,62 @@
+=============================
+SECURITY REPORT GENERATED
+DATE: Mon Apr 20 04:02:11 PM EDT 2026
+HOSTNAME: MK
+USER: selenophile
+=============================
+
+---- Recent SSH Failed Logins ----
+2026-04-20T16:02:22.241256-04:00 MK sudo: selenophile : TTY=pts/3 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep -a 'Failed password' /var/log/auth.log
+
+---- Recent SSH Accepted Logins ----
+2026-04-20T16:02:22.262112-04:00 MK sudo: selenophile : TTY=pts/3 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep -a Accepted /var/log/auth.log
+
+---- Invalid Users Attempt ----
+2026-04-20T16:02:22.278929-04:00 MK sudo: selenophile : TTY=pts/3 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep -a 'Invalid user' /var/log/auth.log
+
+---- UFW Firewall Status ----
+Status: active
+Logging: on (medium)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+8080                       ALLOW IN    Anywhere                  
+2222/tcp                   ALLOW IN    Anywhere                  
+80/tcp                     ALLOW IN    Anywhere                  
+443/tcp                    ALLOW IN    Anywhere                  
+22/tcp                     DENY IN     Anywhere                  
+2222/tcp                   ALLOW IN    192.168.100.0/24          
+8080 (v6)                  ALLOW IN    Anywhere (v6)             
+22 (v6)                    DENY IN     Anywhere (v6)             
+2222/tcp (v6)              ALLOW IN    Anywhere (v6)             
+80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+22/tcp (v6)                DENY IN     Anywhere (v6)             
+
+
+---- Last 10 Firewall Blocks (UFW Logs) ----
+2026-04-20T15:50:33.814405-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:51:06.070391-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1621 PROTO=2 
+2026-04-20T15:52:38.746541-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:53:11.102542-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1622 PROTO=2 
+2026-04-20T15:54:43.774382-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:55:16.030423-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1623 PROTO=2 
+2026-04-20T15:56:48.806419-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:58:53.734434-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:59:25.990387-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1625 PROTO=2 
+2026-04-20T16:00:58.770574-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+
+---- Fail2Ban Status (SSH Jail) ----
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed:	0
+|  |- Total failed:	0
+|  `- File list:	/var/log/auth.log
+`- Actions
+   |- Currently banned:	0
+   |- Total banned:	0
+   `- Banned IP list:	
+
+Report saved to: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-20_16-02-11.txt
