@@ -1,0 +1,46 @@
+hostname
+whoami
+date
+update
+
+Uptime: up 3 min
+
+NAME="Kali GNU/Linux"
+VERSION="2026.1"
+Kernal : 6.18.12+kali-amd64
+IP Address: 192.168.100.87
+Users
+nobody
+selenophile
+ali
+ahamad
+mohsin
+test
+
+sudo:x:27:selenophile,test
+
+tcp             LISTEN           0                128                                                   0.0.0.0:2222                            0.0.0.0:*              
+tcp             LISTEN           0                128                                                      [::]:2222                               [::]:*    
+
+tcp   LISTEN 0      128                              0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=780,fd=6))           
+tcp   LISTEN 0      128                                 [::]:2222         [::]:*    users:(("sshd",pid=780,fd=7))     
+
+
+ssh.service               loaded active running OpenBSD Secure Shell server
+cron.service              loaded active running Regular background program processing daemon
+
+top 3 process name
+root         792  3.7  0.7 642656 126352 tty7    Rsl+ 15:59   0:38 /usr/lib/xorg/Xorg :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch
+selenop+    1247  0.9  0.6 1219324 104052 ?      Sl   15:59   0:09 xfwm4
+selenop+    2130  1.5  0.4 811868 70364 ?        Sl   15:59   0:15 /usr/bin/qterminal
+
+
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- File list:        /var/log/auth.log
+`- Actions
+   |- Currently banned: 0
+   |- Total banned:     0
+   `- Banned IP list:

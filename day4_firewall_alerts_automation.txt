@@ -1,0 +1,141 @@
+Check UFW Status 
+
+
+sudo ufw status verbose
+Status: active
+Logging: off
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+8080                       ALLOW IN    Anywhere                  
+2222/tcp                   ALLOW IN    Anywhere                  
+80/tcp                     ALLOW IN    Anywhere                  
+443/tcp                    ALLOW IN    Anywhere                  
+22/tcp                     DENY IN     Anywhere                  
+2222/tcp                   ALLOW IN    192.168.100.0/24          
+8080 (v6)                  ALLOW IN    Anywhere (v6)             
+22 (v6)                    DENY IN     Anywhere (v6)             
+2222/tcp (v6)              ALLOW IN    Anywhere (v6)             
+80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+22/tcp (v6)                DENY IN     Anywhere (v6)   
+
+
+
+-------------
+Enable UFW logging
+
+sudo ufw logging on    
+Logging enabled
+
+
+-------------
+Verify
+
+sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+8080                       ALLOW IN    Anywhere                  
+2222/tcp                   ALLOW IN    Anywhere                  
+80/tcp                     ALLOW IN    Anywhere                  
+443/tcp                    ALLOW IN    Anywhere                  
+22/tcp                     DENY IN     Anywhere                  
+2222/tcp                   ALLOW IN    192.168.100.0/24          
+8080 (v6)                  ALLOW IN    Anywhere (v6)             
+22 (v6)                    DENY IN     Anywhere (v6)             
+2222/tcp (v6)              ALLOW IN    Anywhere (v6)             
+80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+22/tcp (v6)                DENY IN     Anywhere (v6)             
+
+
+------------
+Check UFW logging level
+
+ sudo ufw logging medium
+Logging enabled
+
+ verify 
+                                                                                                                                                                      
+ sudo ufw status verbose
+Status: active
+Logging: on (medium)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+8080                       ALLOW IN    Anywhere                  
+2222/tcp                   ALLOW IN    Anywhere                  
+80/tcp                     ALLOW IN    Anywhere                  
+443/tcp                    ALLOW IN    Anywhere                  
+22/tcp                     DENY IN     Anywhere                  
+2222/tcp                   ALLOW IN    192.168.100.0/24          
+8080 (v6)                  ALLOW IN    Anywhere (v6)             
+22 (v6)                    DENY IN     Anywhere (v6)             
+2222/tcp (v6)              ALLOW IN    Anywhere (v6)             
+80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+22/tcp (v6)                DENY IN     Anywhere (v6)  
+
+
+-----------------
+ALlow SSH Port
+
+
+sudo ufw allow 22/tcp  
+Rule updated
+Rule updated (v6)
+
+
+
+------------
+Deny SSH Port
+
+sudo ufw deny 22/tcp           
+Rule updated
+Rule updated (v6)
+
+-------------
+Reload firewall rule
+
+sudo ufw reload     
+Firewall reloaded
+
+-------------
+
+View firewall logs (real time monitoring)
+
+sudo tail -f /var/log/ufw.log    
+2026-04-20T14:54:52.066448-04:00 MK kernel: [UFW AUDIT] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1589 PROTO=2 
+2026-04-20T14:54:52.066502-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1589 PROTO=2 
+2026-04-20T14:56:23.918339-04:00 MK kernel: [UFW AUDIT] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T14:56:23.918387-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T14:56:34.894456-04:00 MK kernel: [UFW AUDIT] IN=wlan0 OUT= MAC=ff:ff:ff:ff:ff:ff:82:0e:b1:d6:b0:47:08:00 SRC=0.0.0.0 DST=255.255.255.255 LEN=340 TOS=0x10 PREC=0x00 TTL=64 ID=0 DF PROTO=UDP SPT=68 DPT=67 LEN=320 
+
+-----------------
+Search blocked traffic logs
+
+udo grep "BLOCK" /var/log/ufw.log | tail -n 20
+2026-04-20T14:54:52.066502-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1589 PROTO=2 
+2026-04-20T14:56:23.918387-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T14:56:57.002508-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1590 PROTO=2 
+                          
+
+------------------
+
+Count top attacking IPS in firwall logs
+
+sudo grep "BLOCK" /var/log/ufw.log | grep -oP 'SRC=\K\S+' | sort | uniq -c | sort -nr | head          
+      3 10.10.10.3
+      1 192.168.100.154
+
+
+

@@ -1,0 +1,119 @@
+
+
+================
+Project 2 DAY 2
+LOG INVESTAGATION REPORT
+=========================
+sudo grep "Accepted" /var/log/auth.log | tail -n 10
+
+Successful SSH  Login 
+
+password accepted
+accepted publickey
+
+2026-04-07T15:05:54.699311-04:00 MK sshd-session[23973]: Accepted password for selenophile from 127.0.0.1 port 60950 ssh2
+2026-04-08T13:34:03.393517-04:00 MK sudo: selenophile : TTY=pts/0 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep 'Accepted password' /var/log/auth.log
+2026-04-08T13:40:15.710439-04:00 MK sshd-session[10878]: Accepted password for selenophile from 127.0.0.1 port 43438 ssh2
+2026-04-08T13:42:43.521235-04:00 MK sshd-session[12457]: Accepted password for selenophile from 127.0.0.1 port 36178 ssh2
+2026-04-08T14:14:34.092884-04:00 MK sshd-session[29237]: Accepted password for selenophile from 127.0.0.1 port 33800 ssh2
+2026-04-08T14:46:20.271943-04:00 MK sshd-session[45719]: Accepted password for test from 192.168.100.78 port 39594 ssh2
+2026-04-08T14:54:01.791260-04:00 MK sshd-session[51075]: Accepted password for test from 192.168.100.78 port 54150 ssh2
+2026-04-10T14:21:32.586809-04:00 MK sudo: selenophile : TTY=pts/1 ; PWD=/home/selenophile/Project2_SOC_Lab ; USER=root ; COMMAND=/usr/bin/grep Accepted /var/log/auth.log
+
+===========
+
+sudo grep "Failed password" /var/log/auth.log | tail -n 10
+
+Show Wrong password tries
+
+192.168.100.78   test   2026-04-08T16:08:07.884340-04:00
+192.168.100.98   selenophile  2026-04-10T14:22:51.866303-04:00
+
+==================
+
+Attacker tries random usernames like : admin,root,ubuntu
+sudo grep "Invalid user" /var/log/auth.log | tail -n 10  
+
+
+================
+
+sudo grep "Disconnected" /var/log/auth.log | tail -n 10
+
+2026-04-07T15:06:18.024958-04:00 MK sshd-session[24013]: Disconnected from user selenophile 127.0.0.1 port 60950
+2026-04-08T14:59:32.995183-04:00 MK sshd-session[51148]: Disconnected from user test 192.168.100.78 port 54150
+2026-04-08T14:59:36.946712-04:00 MK sshd-session[45899]: Disconnected from user test 192.168.100.78 port 39594
+2026-04-08T16:37:15.329966-04:00 MK sshd-session[11097]: Disconnected from user selenophile 127.0.0.1 port 43438
+2026-04-08T16:37:15.348924-04:00 MK sshd-session[12497]: Disconnected from user selenophile 127.0.0.1 port 36178
+2026-04-08T16:37:15.388564-04:00 MK sshd-session[29270]: Disconnected from user selenophile 127.0.0.1 port 33800
+2026-04-10T14:44:06.102004-04:00 MK sudo: selenophile : TTY=pts/1 ; PWD=/home/selenophile/Project2_SOC_Lab ; USER=root ; COMMAND=/usr/bin/grep Disconnected /var/log/auth.log
+
+Shows when connection drop or disconnected 
+
+=================================
+
+sudo grep "sudo" /var/log/auth.log | tail -n 10
+
+shows who used sudo and what command they excuted (important to detect inside detector)
+
+=================
+sudo grep "adduser" /var/log/auth.log | tail -n 20 
+sudo grep "useradd" /var/log/auth.log | tail -n 20 
+
+if attacker creates a backdoor account it will appear here .
+
+================
+
+sudo grep "authentication failure" /var/log/auth.log | tail -n 20
+
+sudo grep "authentication failure" /var/log/auth.log | tail -n 10
+2026-04-08T15:41:08.136880-04:00 MK sshd-session[74838]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T15:41:17.540972-04:00 MK sshd-session[74838]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T16:03:26.041246-04:00 MK sshd-session[86326]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T16:03:34.446663-04:00 MK sshd-session[86326]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T16:08:06.151280-04:00 MK sshd-session[88679]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T16:08:26.602101-04:00 MK sshd-session[88679]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T16:09:42.108908-04:00 MK sshd-session[89582]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T16:09:55.462116-04:00 MK sshd-session[89582]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.78  user=test
+2026-04-08T16:31:09.089974-04:00 MK sshd-session[100907]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.100.98  user=selenophile
+2026-04-10T14:27:59.076116-04:00 MK sudo: selenophile : TTY=pts/1 ; PWD=/home/selenophile/Project2_SOC_Lab ; USER=root ; COMMAND=/usr/bin/grep 'authentication failure' /var/log/auth.log
+
+===========================
+
+sudo journalctl -u ssh --since today | tail -n 30
+
+This shows service level SSH events (restart , failure etc)
+
+Apr 10 14:10:16 MK systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Apr 10 14:10:16 MK sshd[824]: Server listening on 0.0.0.0 port 2222.
+Apr 10 14:10:16 MK sshd[824]: Server listening on :: port 2222.
+Apr 10 14:10:16 MK systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+Apr 10 14:10:16 MK sshd[824]: error: Bind to port 2222 on 0.0.0.0 failed: Address already in use.
+Apr 10 14:10:16 MK sshd[824]: error: Bind to port 2222 on :: failed: Address already in use.
+
+==============
+
+sudo tail /var/log/auth.log
+
+Real time SOC monitoring 
+
+
+===============
+
+sudo grep "Failed password" /var/log/auth.log | awk '{pring $(NF-3)}' | sort | uniq -c | sort -nr | head
+
+shows which ip is attacking most
+
+  22 192.168.100.78
+     20 127.0.0.1
+      6 COMMAND=/usr/bin/grep
+      3 192.168.100.98
+====================================================
+
+
+CONCLUSION
+===================================================
+Suspecious Ips 
+192.168.100.78
+192.168.100.98
+
+I conducted a security log investigation focused on SSH authetication events using Linux system logs stored in /var/log/auth.log . The analysis confirmed multiple successful SSH sessions (Accepted  password) for legitmate accounts including selenophile and test, proving SSH access is active and functioning correctly additionally repeated fail password events (Failed password) were identified from the IP address 192.168.100.78 suggest continuous login attempts which can represent bruteforce behavior or unauthorized access testing no critical "invalid user" attack pattern were observed in the latest log output.This investigation verifies that authentication loggingis working correctly and provides actionable visibility for furture SOC monitoring alerting and incident respons.

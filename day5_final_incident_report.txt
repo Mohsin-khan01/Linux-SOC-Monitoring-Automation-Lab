@@ -1,0 +1,146 @@
+
+Check Script File exists
+
+ls -lh ~/Project2_SOC_Lab/scripts/security_monitor.sh
+-rwxrwxr-x 1 selenophile selenophile 1.5K Apr 15 14:34 /home/selenophile/Project2_SOC_Lab/scripts/security_monitor.sh
+
+----------------
+
+Give Script execute permission
+chmod +x ~/Project2_SOC_Lab/scripts/security_monitor.sh
+
+Verify
+
+ls -l ~/Project2_SOC_Lab/scripts/security_monitor.sh 
+-rwxrwxr-x 1 selenophile selenophile 1520 Apr 15 14:34 /home/selenophile/Project2_SOC_Lab/scripts/security_monitor.sh
+
+
+-------------
+Run Script Manually
+
+bash ~/Project2_SOC_Lab/scripts/security_monitor.sh
+
+Check Hourly report folder
+
+s -lh ~/Project2_SOC_Lab/reports/hourly             
+total 80K
+-rw-rw-r-- 1 selenophile selenophile 8.4K Apr 14 16:19 security_report_2026-04-14_16-19-14.txt
+-rw-rw-r-- 1 selenophile selenophile 8.4K Apr 14 16:28 security_report_2026-04-14_16-28-09.txt
+-rw-rw-r-- 1 selenophile selenophile 8.4K Apr 14 16:34 security_report_2026-04-14_16-34-38.txt
+-rw-rw-r-- 1 selenophile selenophile 8.6K Apr 15 14:17 security_report_2026-04-15_14-17-41.txt
+-rw-rw-r-- 1 selenophile selenophile 8.5K Apr 15 14:27 security_report_2026-04-15_14-27-02.txt
+-rw-rw-r-- 1 selenophile selenophile 8.4K Apr 15 14:35 security_report_2026-04-15_14-35-06.txt
+-rw-rw-r-- 1 selenophile selenophile 4.1K Apr 20 16:02 security_report_2026-04-20_16-02-11.txt
+
+
+--------------
+
+View latest generated report
+
+cat ~/Project2_SOC_Lab/reports/hourly/security_report_* | tail -n 50
+
+---- Invalid Users Attempt ----
+2026-04-20T16:02:22.278929-04:00 MK sudo: selenophile : TTY=pts/3 ; PWD=/home/selenophile ; USER=root ; COMMAND=/usr/bin/grep -a 'Invalid user' /var/log/auth.log
+
+---- UFW Firewall Status ----
+Status: active
+Logging: on (medium)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+8080                       ALLOW IN    Anywhere                  
+2222/tcp                   ALLOW IN    Anywhere                  
+80/tcp                     ALLOW IN    Anywhere                  
+443/tcp                    ALLOW IN    Anywhere                  
+22/tcp                     DENY IN     Anywhere                  
+2222/tcp                   ALLOW IN    192.168.100.0/24          
+8080 (v6)                  ALLOW IN    Anywhere (v6)             
+22 (v6)                    DENY IN     Anywhere (v6)             
+2222/tcp (v6)              ALLOW IN    Anywhere (v6)             
+80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+22/tcp (v6)                DENY IN     Anywhere (v6)             
+
+
+---- Last 10 Firewall Blocks (UFW Logs) ----
+2026-04-20T15:50:33.814405-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:51:06.070391-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1621 PROTO=2 
+2026-04-20T15:52:38.746541-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:53:11.102542-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1622 PROTO=2 
+2026-04-20T15:54:43.774382-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:55:16.030423-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1623 PROTO=2 
+2026-04-20T15:56:48.806419-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:58:53.734434-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+2026-04-20T15:59:25.990387-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:20:ab:48:36:e5:84:08:00 SRC=10.10.10.3 DST=224.0.0.1 LEN=28 TOS=0x00 PREC=0x00 TTL=1 ID=1625 PROTO=2 
+2026-04-20T16:00:58.770574-04:00 MK kernel: [UFW BLOCK] IN=wlan0 OUT= MAC=01:00:5e:00:00:01:e8:48:b8:75:d3:1c:08:00 SRC=192.168.100.154 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+
+---- Fail2Ban Status (SSH Jail) ----
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- File list:        /var/log/auth.log
+`- Actions
+   |- Currently banned: 0
+   |- Total banned:     0
+   `- Banned IP list:
+
+Report saved to: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-20_16-02-11.txt
+
+--------------------------
+
+
+Check log file output
+
+cat ~/Project2_SOC_Lab/logs/hourly_security_reports.log | tail -n 30
+Sun Apr 12 12:29:26 PM EDT 2026 Report Generated: 
+Sun Apr 12 12:37:49 PM EDT 2026 Report Generated: 
+Tue Apr 14 04:19:15 PM EDT 2026 Report Generated: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-14_16-19-14.txt
+Tue Apr 14 04:28:09 PM EDT 2026 Report Generated: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-14_16-28-09.txt
+Tue Apr 14 04:34:39 PM EDT 2026 Report Generated: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-14_16-34-38.txt
+Wed Apr 15 02:17:44 PM EDT 2026 Report Generated: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-15_14-17-41.txt
+Wed Apr 15 02:27:02 PM EDT 2026 Report Generated: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-15_14-27-02.txt
+Wed Apr 15 02:35:06 PM EDT 2026 Report Generated: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-15_14-35-06.txt
+Mon Apr 20 04:02:22 PM EDT 2026 Report Generated: /home/selenophile/Project2_SOC_Lab/reports/hourly/security_report_2026-04-20_16-02-11.txt
+
+
+-----------------
+
+Check cron service running 
+
+sudo systemctl status cron     
+● cron.service - Regular background program processing daemon
+     Loaded: loaded (/usr/lib/systemd/system/cron.service; enabled; preset: enabled)
+     Active: active (running) since Mon 2026-04-20 14:36:14 EDT; 1h 33min ago
+ Invocation: 0106dec670bf4701bd494b07c33edd15
+       Docs: man:cron(8)
+   Main PID: 671 (cron)
+      Tasks: 1 (limit: 18833)
+     Memory: 544K (peak: 2.2M)
+        CPU: 388ms
+     CGroup: /system.slice/cron.service
+             └─671 /usr/sbin/cron -f
+
+Apr 20 16:00:01 MK CRON[48897]: pam_unix(cron:session): session opened for user selenophile(uid=1000) by selenophile(uid=0)
+Apr 20 16:00:01 MK CRON[48899]: (selenophile) CMD (/bi/bash /home/selenophile/Project2_SOC_Lab/scripts?security_monitor.sh)
+Apr 20 16:00:01 MK CRON[48897]: (CRON) info (No MTA installed, discarding output)
+Apr 20 16:00:01 MK CRON[48897]: pam_unix(cron:session): session closed for user selenophile
+Apr 20 16:05:01 MK CRON[51663]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Apr 20 16:05:01 MK CRON[51665]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Apr 20 16:05:01 MK CRON[51663]: pam_unix(cron:session): session closed for user root
+Apr 20 16:09:01 MK CRON[53771]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Apr 20 16:09:01 MK CRON[53773]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Apr 20 16:09:01 MK CRON[53771]: pam_unix(cron:session): session closed for user root
+
+
+------------=
+
+Final Proof of Automation 
+
+
+ ls -l ~/Project2_SOC_Lab/reports/hourly | wc -l     
+8
+
+****************************************************

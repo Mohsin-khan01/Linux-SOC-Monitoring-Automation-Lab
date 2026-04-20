@@ -1,0 +1,111 @@
+=============
+Project 2 - Day 3
+
+PROCESS & PORT MONITORIG REPORT
+
+============
+top 
+
+(P for sort by cpu M for Memory)
+Top 3 CPU Process
+
+ 838 root      20   0  617880 114992  75356 S   8.6   0.7   0:14.75 Xorg    
+ 2081 selenop+  20   0  811076  67956  51700 S   6.4   0.4   0:05.47 qterminal                                                                                       
+ 3118 selenop+  20   0   10444   5916   3756 R   6.4   0.0   0:01.11 top    
+
+
+RAM PROCESS
+   838 root      20   0  620160 117104  75356 S   7.9   0.7   0:17.90 Xorg                                                                                            
+   1299 selenop+  20   0 1284864 104208  79552 S   1.7   0.6   0:04.62 xfwm4       
+
+
+-----------------------------
+Highes cpu usage
+
+ps aux --sort=-%cpu | head -n 10
+
+root         838  4.1  0.7 618608 115552 tty7    Ssl+ 13:50   0:20 /usr/lib/xorg/Xorg :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch
+selenop+    2081  2.2  0.4 811076 67960 ?        Sl   13:50   0:10 /usr/bin/qterminal
+selenop+    1299  1.1  0.6 1284864 104208 ?      Sl   13:50   0:05 xfwm4
+selenop+    1414  0.7  0.3 315156 64324 ?        Sl   13:50   0:03 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libcpugraph.so 13 16777228 cpugraph CPU Graph Graphical representation of the CPU load
+selenop+    1416  0.5  0.1 277104 29952 ?        Sl   13:50   0:02 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libg
+
+
+ps aux --sort=-%mem | head -n 10
+
+root         838  4.1  0.7 623068 120188 tty7    Rsl+ 13:50   0:29 /usr/lib/xorg/Xorg :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch
+selenop+    1299  1.0  0.6 1284864 104208 ?      Sl   13:50   0:07 xfwm4
+selenop+    2081  2.2  0.4 811076 67968 ?        Sl   13:50   0:15 /usr/bin/qterminal
+selenop+    1414  0.6  0.3 315156 64324 ?        Sl   13:50   0:04 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libcpugraph.so 13 16777228 cpugraph CPU Graph Graphical representation of the CPU load
+
+
+
+-------------------------
+
+sudo ss -tuln
+
+shows which ports are open and listening
+
+0.0.0.0:2222
+
+sudo ss -tulnp
+
+2222  users:(("sshd",pid=825,fd=6))  
+
+---------------------------
+
+sudo lsof -i :2222
+
+shows which program is using port 2222
+
+sshd    825 root 6u  IPv4  11787      0t0  TCP *:2222 (LISTEN)
+sshd    825 root 7u  IPv6  11789      0t0  TCP *:2222 (LISTEN)
+
+
+----------------------
+
+sudo ss -tunap | head -n 30
+
+shows
+established connection 
+remote ips connected
+processes using network
+
+
+udp   ESTAB  0      0                   192.168.100.87%wlan0:68   192.168.100.1:67   users:(("NetworkManager",pid=707,fd=29))
+
+
+------------------
+
+ps -p (ANY PID) -o pid,ppid,user,%cpu,%mem,cmd
+
+shows full command that started that process
+
+1414    1346 selenop+  0.6  0.3 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libcpugraph.so 13 16777228 cpugraph
+
+-----------------
+
+
+pstree -p | head -n 30
+
+shows process hierarchy
+
+|-agetty(840)
+           |-colord(1763)-+-{colord}(1803)
+           |              |-{colord}(1804)
+           |              `-{colord}(1807)
+
+
+-------------------
+
+sleep 9999 &
+
+create fake suspicious process
+
+ps aux | grep sleep
+selenop+   15720  0.0  0.0   5616  2192 pts/1    SN   14:17   0:00 sleep 9999
+
+kill PID
+kill 15720
+stops suspecious running process
+
